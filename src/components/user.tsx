@@ -25,7 +25,6 @@ const User: React.FC<UserProps> = memo(
     const dispatch = useAppDispatch()
 
     function followClickHandler() {
-      console.log(id)
       if (id === undefined) return
       isFollowing ? dispatch(unFollow(id)) : dispatch(follow(id))
     }
