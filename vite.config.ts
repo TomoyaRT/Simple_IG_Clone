@@ -6,7 +6,6 @@ import * as path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Simple_IG_Clone/',
   server: {
     port: 3001,
   },
