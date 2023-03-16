@@ -1,3 +1,6 @@
+import { useAppDispatch } from '@/hooks/store'
+import { follow, unFollow } from '@/store/slices/friendSlice'
+
 type UserProps = {
   size?: 'medium' | 'small'
   showFollow?: boolean
@@ -17,6 +20,14 @@ const User: React.FC<UserProps> = ({
   avatar,
   id,
 }) => {
+  const dispatch = useAppDispatch()
+
+  function followClickHandler() {
+    console.log(id)
+    if (id === undefined) return
+    isFollowing ? dispatch(unFollow(id)) : dispatch(follow(id))
+  }
+
   return (
     <div className="flex h-[70px] items-center box-border px-4">
       <div
@@ -36,6 +47,7 @@ const User: React.FC<UserProps> = ({
           className={`${
             isFollowing ? 'text-gray-700' : 'text-blue-400'
           } ml-auto text-xs font-bold cursor-pointer`}
+          onClick={followClickHandler}
         >
           {isFollowing ? 'FOLLOWING' : 'FOLLOW'}
         </p>

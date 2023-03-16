@@ -15,3 +15,11 @@ export type Post = {
   hashTags: string
   createTime: string
 }
+
+export type Friend = {
+  id: number
+  location: string
+  account: string
+  isFollowing: boolean
+  avatar: string
+}
